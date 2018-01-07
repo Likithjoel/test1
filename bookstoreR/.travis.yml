@@ -1,6 +1,18 @@
+dist: trusty
+sudo: required
 
 language: node_js
 node_js:
   - "stable"
-
-  
+addons:
+  sonarcloud:
+    organization: "likithjoel-github"
+    token:
+      secure: "967f5340e90e957d889d104b0c2c4e1b4df6ec4a"
+  sauce_connect:
+    username: "likithjoel"
+    access_key: "15bcd862-615a-4775-ba98-feeab15399cc"
+    
+script:
+  - sonar-scanner
+  - npm test
